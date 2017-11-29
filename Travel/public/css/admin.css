@@ -1,0 +1,6 @@
+.login{float: none;margin: 30vh auto;display: block;}
+body{background:#40403f;}
+.login{background:#fff; padding:40px;border-radius: 5px;}
+.form-control{margin-bottom: 20px;}
+#submit{background: #40403f; color:#fff;}
+.main_box{margin-top:30vh;text-align: center;}
