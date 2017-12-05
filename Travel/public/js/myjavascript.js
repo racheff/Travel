@@ -49,6 +49,7 @@ $(document).ready(function(){
       $(".login_register_popup").removeClass('opened');
       $(".loginpopup").show();
       $("#register").hide('800');
+      $("#forgot").hide('800');
   });
     $('body').click(function(evt){    
          if(evt.target.id == "body_close")
@@ -63,11 +64,17 @@ $(document).ready(function(){
         $(".login_register_popup").removeClass('opened');
         $(".loginpopup").show();
          $("#register").hide('800');
+          $("#forgot").hide('800');
     });
     $('#register_button').click(function(e){  
     e.preventDefault();  
          $("#login").hide();
          $("#register").show();
 
+    });
+    $('.forgot_password').click(function(e){  
+    e.preventDefault();  
+         $("#login").hide();
+         $("#forgot").show();
     });
 });

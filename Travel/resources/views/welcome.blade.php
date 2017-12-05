@@ -38,21 +38,7 @@
         <!-- end preloader -->
 
         <!--start header-->
-       <!--  @if (Route::has('login'))
-                <div class="cpanel-top">
-                    @auth
-                    <span>Hello {{ Auth::user()->name }} !</span>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                        Logout
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                    @endauth
-                </div>
-        @endif -->
+      
         <!--end header -->
 
         <!-- start navigation -->
@@ -102,9 +88,11 @@
                 @else
                     <div class="login_register_popup" id="body_close">
         <i class="fa fa-user-o loginpopup"></i> 
-        <i class="fa fa-times" style="display:none;"></i>   
+        {{--<i class="fa fa-times" style="display:none;"></i>--}}
+            <!-- login -->   
             <form method="post" id="login" action="{{ route('login') }}">
                  {{ csrf_field() }}
+
                  @if ($errors->has('email'))
                     <span class="help-block">
                         <strong>{{ $errors->first('email') }}</strong>
@@ -120,22 +108,36 @@
                         <strong>{{ $errors->first('password') }}</strong>
                     </span>
                 @endif
+                @if ($errors->has('name'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
                  <input name="email" type="text" class="form-control" id="email" required="" placeholder="E-Mail Address">
                  <input name="password" type="password" class="form-control" id="password" required="" placeholder="Password">
-                 <input type="checkbox" name="rememberme" value="rememberme" id="rememberme"><span class="remember">Remember me</span><br>
-                  <a href="{{ route('password.request') }}">Forgot your password?</a><br>
-                  <input type="submit" id="register_button" value="register">
+                 <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}> <label for="remember" class="remember">Remember Me</label><br>
+                  <a href="#" class="forgot_password">Forgot your password?</a><br>
+                  
 
                  <input type="submit" id="login_button" value="login">
+                 <input type="submit" id="register_button" value="register">
             </form>
-
+            <!-- register -->
             <form method="post" id="register" action="{{ route('register') }}" style="display:none;">
+                {{ csrf_field() }}
+                    <input name="name" type="text" class="form-control" id="name" required="" placeholder="Name">
+                    <input name="email" type="text" class="form-control" id="email" required="" placeholder="E-Mail Address">
+                    <input name="password" type="password" class="form-control" id="password" required="" placeholder="Password">
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required="" placeholder="Confirm Password">
+                    <input type="submit" id="register_button" value="register">
+            </form>
+            <!-- forgot -->
+            <form method="post" id="forgot" action="{{ route('password.request') }}" style="display:none;">
                  {{ csrf_field() }}
-                <input name="name" type="text" class="form-control" id="name" required="" placeholder="Name">
+
                 <input name="email" type="text" class="form-control" id="email" required="" placeholder="E-Mail Address">
-                <input name="password" type="password" class="form-control" id="password" required="" placeholder="Password">
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required="" placeholder="Confirm Password">
-                <input type="submit" id="register_button" value="register">
+                
+                <input type="submit" id="forgot_button" value="Confirm">
             </form>
 
         </div>

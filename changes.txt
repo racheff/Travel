@@ -1,0 +1,4 @@
+#Laravel project by Kaloyan Rachev for non-real purposes
+v1.0 - Adding laravel + template + auth working
+v1.1 - css, js, php fixes refer to Auth 
+v1.2 - added TAgents, Bookings, Destinations - Controllers, Models and Migrations.

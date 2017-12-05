@@ -206,10 +206,10 @@ body #portfolio{padding-top: 0;padding-bottom: 0;clear: both;}
 .text_under_heading{text-align: left;}
 .text_under_heading p{color: rgb(82,84,83);font-size: 20px;}
 .hot{font-size: 20px;color: red;text-align: right;display: inline-block;vertical-align: top;padding-left: 5px;}
-.login_register_popup{background: rgba(0,0,0,0.8);padding:0 10px 0 10px;position:fixed;top:40%;right:0;z-index: 99999;border-bottom-left-radius: 0;}
-body #login{padding-bottom: 10px;padding-top: 10px;max-width: 350px;width:100%;}
-body #login .form-control, body #register .form-control{width: 350px;}
-body #login_button, #register_button{float:right;
+.login_register_popup{background: rgba(0,0,0,0.8);padding:10px 10px;position:fixed;top:70px;right:0;z-index: 99999;border-bottom-left-radius: 0;}
+body #login{padding-bottom:0;padding-top: 10px;max-width: 300px;width:100%;}
+body #login .form-control, body #register .form-control, body #forgot .form-control{width: 300px;}
+body #login_button, #register_button, #forgot_button{float:right;
     /* width: 80px; */
     padding: 2px 25px;
     text-transform: uppercase;
@@ -220,8 +220,8 @@ body #login_button, #register_button{float:right;
 
 #login{display:none;}
 #register_button{float:left;}
-.loginpopup{font-size: 20px;padding: 10px 0;}
-#login input[type="submit"]:hover ,#register input[type="submit"]:hover {
+.loginpopup{font-size: 20px;padding:0;}
+#login input[type="submit"]:hover ,#register input[type="submit"]:hover, #forgot input[type="submit"]:hover{
     background: transparent;
     border:1px solid #28a7e9;
 }
@@ -230,9 +230,9 @@ body #login input{height:auto;}
     padding: 10px 0;}
 .remember{padding-left: 5px;
     vertical-align: top;}
-html body #register_button, html body #login_button{height:35px !important;}
-body .help-block{color:#fff;margin-top: -7px;}
+html body #register_button, html body #login_button,html body #forgot_button{height:35px !important;}
+body .help-block{color:#fff;margin-top: 0;}
 body .top-right ,body .links{position: fixed;top:0;left:0;z-index:9999;background: #f8f8f8;}
-#register #register_button{margin: 0 auto;
-    float: none;
+#register #register_button{margin: 10 auto;
+    float: right;
     display: block;}
