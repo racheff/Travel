@@ -18,3 +18,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('destinations', function()
+{
+    return View::make('Destinations.index');
+});
+Route::get('tagents', function()
+{
+    return View::make('TAgents.index');
+});
+Route::get('packs', function()
+{
+    return View::make('pages.packs');
+});

@@ -2,3 +2,6 @@
 v1.0 - Adding laravel + template + auth working
 v1.1 - css, js, php fixes refer to Auth 
 v1.2 - added TAgents, Bookings, Destinations - Controllers, Models and Migrations.
+
+css, js, php fixes refer to Auth. Added TAgents, Bookings, Destinations - Controllers, Models and Migrations.
+v1.3 - migrations are fixed. Split header and footer. Added new migrations + tables in the database. Fixed key lenght in AppProvider file.

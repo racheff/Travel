@@ -206,7 +206,7 @@ body #portfolio{padding-top: 0;padding-bottom: 0;clear: both;}
 .text_under_heading{text-align: left;}
 .text_under_heading p{color: rgb(82,84,83);font-size: 20px;}
 .hot{font-size: 20px;color: red;text-align: right;display: inline-block;vertical-align: top;padding-left: 5px;}
-.login_register_popup{background: rgba(0,0,0,0.8);padding:10px 10px;position:fixed;top:70px;right:0;z-index: 99999;border-bottom-left-radius: 0;}
+.login_register_popup{background: rgba(0,0,0,0.8);padding:10px 10px;position:fixed;top:0px;right:0;z-index: 99999;border-bottom-left-radius: 0;}
 body #login{padding-bottom:0;padding-top: 10px;max-width: 300px;width:100%;}
 body #login .form-control, body #register .form-control, body #forgot .form-control{width: 300px;}
 body #login_button, #register_button, #forgot_button{float:right;
