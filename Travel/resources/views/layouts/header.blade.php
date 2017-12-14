@@ -50,7 +50,7 @@
                 <span class="icon icon-bar"></span>
                 <span class="icon icon-bar"></span>
             </button>
-            <a href="#" class="navbar-brand animated bounceIn"><img src="images/plane.png"></a>
+            <a href="#" class="navbar-brand animated bounceIn"><img src="images/airlogo.png"></a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
