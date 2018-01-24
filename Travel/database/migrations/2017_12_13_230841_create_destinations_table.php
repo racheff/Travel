@@ -16,13 +16,11 @@ class CreateDestinationsTable extends Migration
         Schema::create('destinations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('agent_id')->unsigned();
-            $table->string('destination_name');
-            $table->string('destination_country');
-            $table->string('destination_duration');
-            $table->string('destination_image');
-            $table->dateTime('date_from');
-            $table->dateTime('date_to');
-            $table->timestamps();
+            $table->string('name');
+            $table->string('country');
+            $table->string('duration');
+            $table->string('image');
+            $table->string('description');
         });
     }
 

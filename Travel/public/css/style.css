@@ -238,3 +238,6 @@ body .top-right ,body .links{position: fixed;top:0;left:0;z-index:9999;backgroun
     float: right;
     display: block;}
 body .navbar-brand>img{width: 100%; max-width: 210px;height:auto;}
+body #portfolio .portfolio-thumb .portfolio-overlay{background:#000;}
+html body .form-control{width:50%;}
+body #portfolio .portfolio-thumb .portfolio-overlay{padding:10px 20px;}

@@ -20,10 +20,16 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('destinations', function()
+Route::get('/destinations', function()
 {
     return View::make('Destinations.index');
 });
+Route::get('/destinations/create', function()
+{
+    return View::make('Destinations.create');
+});
+Route::resource('destinations', 'DestinationsController');
+Route::resource('agents', 'AgentsController');
 Route::get('tagents', function()
 {
     return View::make('TAgents.index');
@@ -31,4 +37,8 @@ Route::get('tagents', function()
 Route::get('packs', function()
 {
     return View::make('pages.packs');
+});
+
+Route::get('/destinations/{id}', function ($id) {
+   echo $id;
 });

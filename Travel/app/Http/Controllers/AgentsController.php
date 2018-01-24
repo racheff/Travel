@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Agents;
-use App\Destinations;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class DestinationsController extends Controller
+class AgentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,13 +14,10 @@ class DestinationsController extends Controller
      */
     public function index()
     {
-        $destinations = Destinations::all();
-        return view('Destinations.index') ->with('destinations', $destinations);
+        $agents = Agents::all();
+        return view('Agents.index') ->with('agents', $agents);
     }
-    public function destinationAgent($id){
-        $agents = Agents::all($id);
-        return view('Destination.index')->with('agent',$agents);
-    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -32,8 +26,7 @@ class DestinationsController extends Controller
     public function create()
     {
         //
-        return view('Destinations.create');
-
+        return view('Agents.create');
     }
 
     /**
@@ -46,26 +39,18 @@ class DestinationsController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required|unique:destinations|max:255',
-            'country' => 'required|max:255',
-            'duration' => 'required|max:255',
-            'image' => 'required',
-            'description' => 'required|max:255',
-
+            'first_name' => 'required|unique:agents|max:255',
+            'last_name' => 'required|max:255',
+            'company' => 'required|max:255'
         ]);
-        $destination = new Destinations([
-            'name' => $request->get('name'),
-            'country' => $request->get('country'),
-            'duration' => $request->get('duration'),
-            'image' => $request->get('image'),
-            'description' => $request->get('description'),
-            'agent_id' => $request->get('agent_id')
+        $agents = new Agents([
+            'first_name' => $request->get('first_name'),
+            'last_name' => $request->get('last_name'),
+            'company' => $request->get('company')
         ]);
-
-        $destination->save();
+        $agents->save();
         return redirect('/destinations')->with('success', 'Added new destination!');
     }
-
 
     /**
      * Display the specified resource.
@@ -110,8 +95,5 @@ class DestinationsController extends Controller
     public function destroy($id)
     {
         //
-        $destination = Destinations::find($id);
-        $destination->delete();
-        return redirect('/destinations')->with('success', 'Deleted!');
     }
 }

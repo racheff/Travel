@@ -55,10 +55,10 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">HOT</a></li>
-                <li><a href="#">ABOUT US</a></li>
-                <li><a href="#">TRAVEL AGENTS</a></li>
-                <li><a href="#">DESTINATIONS</a></li>
-                <li><a href="#">PACKAGES</a></li>
+                <li><a href="#about">ABOUT US</a></li>
+                <li><a href="/agents">TRAVEL AGENTS</a></li>
+                <li><a href="/destinations">DESTINATIONS</a></li>
+                <li><a href="/packages">PACKAGES</a></li>
                 <li><a href="#">CONTACT US</a></li>
             </ul>
 
@@ -125,6 +125,9 @@
                 <!-- register -->
                 <form method="post" id="register" action="{{ route('register') }}" style="display:none;">
                     {{ csrf_field() }}
+
+
+
                     <input name="name" type="text" class="form-control" id="name" required="" placeholder="Name">
                     <input name="email" type="text" class="form-control" id="email" required="" placeholder="E-Mail Address">
                     <input name="password" type="password" class="form-control" id="password" required="" placeholder="Password">
@@ -135,6 +138,16 @@
                 <form method="post" id="forgot" action="{{ route('password.request') }}" style="display:none;">
                     {{ csrf_field() }}
 
+                     @if ($errors->has('email'))
+                        <span class="help-block">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                        <script type="text/javascript">
+                            $("#forgot").show();
+                            $(".loginpopup").hide();
+                            $(".fa-times").show();
+                        </script>
+                    @endif
                     <input name="email" type="text" class="form-control" id="email" required="" placeholder="E-Mail Address">
 
                     <input type="submit" id="forgot_button" value="Confirm">
