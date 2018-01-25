@@ -17,9 +17,13 @@ class DestinationsController extends Controller
      */
     public function index()
     {
-        $destinations = Destinations::all();
+
+        $destinations = Destinations::with('agents')->get();
         return view('Destinations.index') ->with('destinations', $destinations);
+
     }
+
+
     public function destinationAgent($id){
         $agents = Agents::all($id);
         return view('Destination.index')->with('agent',$agents);

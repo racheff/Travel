@@ -20,7 +20,7 @@ class Destinations extends Model
      *
      */
     public function agents(){
-      return $this->hasMany('App\Models\Agents','id','agent_id');
+return $this->belongsTo('App\Agents','agent_id');
     }
 
 }

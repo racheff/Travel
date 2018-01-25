@@ -12,4 +12,7 @@ class Agents extends Model
         'company'
     ];
     public $timestamps = false;
+    public function  agents(){
+      $this->belongsTo('App\Models\Destinations', 'agent_id');
+    }
 }
