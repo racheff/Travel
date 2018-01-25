@@ -196,11 +196,11 @@ body #interested-in .col-md-4, body #about .col-md-4{min-height: 0;padding:20px 
 /*boxes*/
 body #about .col-md-4:hover .fa{font-size:60px;transition: 0.2s;}
 body #interested-in .col-md-4:hover, body #about .col-md-4:hover{background: #404040;}
-html body{background:#f7f7f7}
+html body{}
 body h2{color:rgb(82,84,83);}
 body .col-md-4{clear:both;}
 .heading{display: inline-block;float: left;}
-h2 span{display:block;text-transform: none;color:rgb(82,84,83);font-size:30px;} 
+h2 span{display:block;text-transform: none;color:#fff;font-size:30px;}
 h2 div{text-align: left;color:rgb(124,203,242); text-transform: capitalize;font-size: 50px}
 #offers p{color: rgb(82,84,83);}
 body #portfolio{padding-top: 0;padding-bottom: 0;clear: both;}
@@ -239,5 +239,28 @@ body .top-right ,body .links{position: fixed;top:0;left:0;z-index:9999;backgroun
     display: block;}
 body .navbar-brand>img{width: 100%; max-width: 210px;height:auto;}
 body #portfolio .portfolio-thumb .portfolio-overlay{background:#000;}
-html body .form-control{width:50%;}
+
 body #portfolio .portfolio-thumb .portfolio-overlay{padding:10px 20px;}
+body .heading{width:100%;display:block;}
+body .heading h2{padding-bottom: 0;}
+.create_update_delete_btns{clear:left;margin-bottom: 10px;}
+.delete_form{display: inline-block}
+.detailed{text-align: center;}
+.detailed_box{    margin: 0 auto;
+    display: block;
+    float: none;
+border:1px solid;padding:0px;  color: rgb(82,84,83);border-color: rgba(255, 255, 255, 0.4);}
+.detailed_img{width:100%;object-fit: cover;}
+.detailed_text_in_box{padding:20px;}
+.create_dest{
+    margin-bottom: 10px;}
+.edit_dest{float:none;margin:0 auto;}
+body .form-control{margin-bottom:5px;}
+.select{color:#999ea9}
+.selectors{color:#555}
+body h2 div{text-align: center}
+body input[type=submit]{width:100%;float:none;display:block;margin:0 auto;}
+body #interested-in .fa, body #about .fa{border:none;
+    font-size: 30px;width:auto;height: 50px;  line-height:35px;  float: left;}
+.detailed_box h1{color:rgb(124,203,242)}
+.detailed_box p{color:#fff}

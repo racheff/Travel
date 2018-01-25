@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 
 use App\Agents;
 use App\Destinations;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class DestinationsController extends Controller
 {
@@ -36,7 +38,7 @@ class DestinationsController extends Controller
     public function create()
     {
         //
-        return view('Destinations.create');
+        return view('destinations.create');
 
     }
 
@@ -48,26 +50,34 @@ class DestinationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $request->validate([
-            'name' => 'required|unique:destinations|max:255',
-            'country' => 'required|max:255',
-            'duration' => 'required|max:255',
-            'image' => 'required',
-            'description' => 'required|max:255',
+        $rules = array(
+            'name'       => 'required',
+            'country'       => 'required',
+            'duration'       => 'required',
+            'image'       => 'required',
+            'description'       => 'required',
+            'agent_id'       => 'required'
 
-        ]);
-        $destination = new Destinations([
-            'name' => $request->get('name'),
-            'country' => $request->get('country'),
-            'duration' => $request->get('duration'),
-            'image' => $request->get('image'),
-            'description' => $request->get('description'),
-            'agent_id' => $request->get('agent_id')
-        ]);
+        );
+        $validator = Validator::make($request->all(), $rules);
+        // process the login
+        if ($validator->fails()) {
+            return redirect('destinations/create')
+                ->withErrors($validator)
+                ->withInput($request->all());
+        } else {
+            $destinations = new Destinations([
+                'name' => $request->get('name'),
+                'country' => $request->get('country'),
+                'duration' => $request->get('duration'),
+                'image' => $request->get('image'),
+                'description' => $request->get('description'),
+                'agent_id' => $request->get('agent_id')
+            ]);
+            $destinations->save();
+            return redirect('destinations');
+        }
 
-        $destination->save();
-        return redirect('/destinations')->with('success', 'Added new destination!');
     }
 
 
@@ -79,7 +89,9 @@ class DestinationsController extends Controller
      */
     public function show($id)
     {
-        //
+        $destinations = Destinations::with('agents')->find($id);
+        return view('Destinations.details') ->with('destinations', $destinations);
+
     }
 
     /**
@@ -90,7 +102,8 @@ class DestinationsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $destinations = Destinations::find($id);
+        return view('destinations.edit', compact('destination', 'id'))->with('destinations', $destinations);
     }
 
     /**
@@ -102,9 +115,21 @@ class DestinationsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
 
+            $destinations = Destinations::find($id);
+            $destinations->name = $request->get('name');
+            $destinations->country = $request->get('country');
+            $destinations->duration = $request->get('duration');
+            $destinations->image = $request->get('image');
+            $destinations->description = $request->get('description');
+            $destinations->agent_id = $request->get('agent_id');
+            $destinations->save();
+            return redirect('destinations/index')->with('success', 'Successfully updated!');
+
+    }
+    public function  currentDest($id){
+
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -116,6 +141,6 @@ class DestinationsController extends Controller
         //
         $destination = Destinations::find($id);
         $destination->delete();
-        return redirect('/destinations')->with('success', 'Deleted!');
+        return redirect('destinations')->with('success', 'Deleted!');
     }
 }

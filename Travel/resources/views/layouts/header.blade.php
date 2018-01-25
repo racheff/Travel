@@ -7,21 +7,21 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/templatemo-style.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="owlcarousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="owlcarousel/assets/owl.theme.default.min.css">
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.singlePageNav.min.js"></script>
-    <script src="js/typed.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="js/myjavascript.js"></script>
+    <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/templatemo-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('owlcarousel/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('owlcarousel/assets/owl.theme.default.min.css') }}">
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.singlePageNav.min.js') }}"></script>
+    <script src="{{ asset('js/typed.js') }}"></script>
+    <script src="{{ asset('js/wow.min.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/myjavascript.js') }}"></script>
 </head>
 <body id="top">
 <a href="#top"><i class="fa fa-angle-double-up" id="backtotop"></i></a>
@@ -50,7 +50,7 @@
                 <span class="icon icon-bar"></span>
                 <span class="icon icon-bar"></span>
             </button>
-            <a href="#" class="navbar-brand animated bounceIn"><img src="images/airlogo.png"></a>
+            <a href="#" class="navbar-brand animated bounceIn"><img src="{{asset('images/airlogo.png')}}"></a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -163,9 +163,9 @@
     <div class="container" id="homecontainer">
         <div class="row">
             <div class="owl-carousel">
-                <div><img src="images/travel11.jpg"></div>
-                <div><img src="images/travel2.jpg"></div>
-                <div><img src="images/travel3.jpeg"></div>
+                <div><img src="{{asset ('images/travel11.jpg')}}"></div>
+                <div><img src="{{asset ('images/travel2.jpg')}}"></div>
+                <div><img src="{{asset ('images/travel3.jpeg')}}"></div>
             </div>
             <div class="col-md-offset-2 col-md-8 main-content-box">
                 <h1 class="wow fadeIn" data-wow-offset="50" data-wow-delay="0.9s">
@@ -182,7 +182,7 @@
     </div>
 </section>
 <!-- end home -->
-<script type="text/javascript">
+<script>
     $(document).ready(function(){
         var owl = $('.owl-carousel');
         owl.owlCarousel({
@@ -201,4 +201,5 @@
             nav:true
         });
     });
+
 </script>

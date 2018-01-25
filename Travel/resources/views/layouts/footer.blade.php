@@ -19,7 +19,7 @@
                     <textarea name="message" rows="4" class="form-control" id="message" required="" placeholder="message..."></textarea>
 
                     <input type="submit" class="form-control" id="submit">
-                    <script src="js/formajax.js"></script>
+                    <script src="{{asset('js/formajax.js')}}"></script>
                 </form>
             </div>
             <div class="col-md-12">
@@ -48,7 +48,7 @@
         </div>
     </div>
     <!--<script src="jquery.min.js"></script>-->
-    <script src="owlcarousel/owl.carousel.min.js"></script>
+    <script src="{{asset ('owlcarousel/owl.carousel.min.js')}}"></script>
 </footer>
 <!-- end copyright -->
 
