@@ -6,10 +6,11 @@
             <div class="col-md-6 heading">
                 <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><div>Destinations<span class="hot">HOT</span><span>Grab your best offer for the best price.</span></div></h2>
             </div>
-            @if (\Session::has('success'))
-                <div class="alert alert-info">{{\Session::get('success') }}</div>
-            @endif
+
             <div class="container" id="portfolio">
+                @if (\Session::has('success'))
+                    <div class="alert alert-info">{{\Session::get('success') }}</div>
+                @endif
                 <a href="{{ URL::to('destinations/create') }}" class="btn btn-infog create_dest">Create a destination</a>
 
                 <div class="row">
@@ -28,7 +29,7 @@
                                     <a href="{{action('DestinationsController@show', $destination->id )}}" class="btn btn-default">Details</a>
                                     @if (Route::has('login'))
                                         @if(auth()->user('admin') == true)
-                                                <a href="{{--{{action('BookingsController@create', $destination->id )}}--}}" class="btn btn-default">Book it!</a>
+                                                <a href="{{ URL::to('bookings/create/' . $destination->id) }}" class="btn btn-default">Book it!</a>
                                                 <a href="{{ URL::to('destinations/' . $destination->id . '/edit') }}" class="btn btn-default">Edit</a>
                                                 <form action="{{action('DestinationsController@destroy', $destination->id )}}" method="post" class="delete_form">
                                                     {{csrf_field()}}

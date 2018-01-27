@@ -42,7 +42,7 @@
 <!--end header -->
 
 <!-- start navigation -->
-<nav class="navbar navbar-default templatemo-nav" role="navigation">
+<nav class="navbar navbar-default templatemo-nav nav_shadow" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -55,10 +55,10 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">HOT</a></li>
-                <li><a href="#about">ABOUT US</a></li>
-                <li><a href="/agents">TRAVEL AGENTS</a></li>
-                <li><a href="/destinations">DESTINATIONS</a></li>
-                <li><a href="/packages">PACKAGES</a></li>
+                <li><a href="#">ABOUT US</a></li>
+                <li><a href="#">TRAVEL AGENTS</a></li>
+                <li><a href="#">DESTINATIONS</a></li>
+                <li><a href="#">bookings</a></li>
                 <li><a href="#">CONTACT US</a></li>
             </ul>
 
@@ -71,10 +71,11 @@
         @auth
             @if (Route::has('login'))
                 <div class="login_register_popup" id="body_close">
-                    <i class="fa fa-user-plus loginpopup"></i>
+
                     @auth
-                        <span>Hello {{ Auth::user()->name }} !</span>
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        <span>You are logged in as: {{ Auth::user()->name }} !</span></br>
+                        <a href="{{route('home')}}">Go to CP</a>
+                        <a class="logout_link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
                             Logout
                         </a>
@@ -82,6 +83,7 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>
+
                     @endauth
                 </div>
             @endif
@@ -119,7 +121,7 @@
                     <a href="#" class="forgot_password">Forgot your password?</a><br>
 
 
-                    <input type="submit" id="login_button" value="login">
+                    <input type="submit" id="login_button" value="login"><hr>
                     <input type="submit" id="register_button" value="register">
                 </form>
                 <!-- register -->
@@ -138,16 +140,7 @@
                 <form method="post" id="forgot" action="{{ route('password.request') }}" style="display:none;">
                     {{ csrf_field() }}
 
-                     @if ($errors->has('email'))
-                        <span class="help-block">
-                        <strong>{{ $errors->first('email') }}</strong>
-                    </span>
-                        <script type="text/javascript">
-                            $("#forgot").show();
-                            $(".loginpopup").hide();
-                            $(".fa-times").show();
-                        </script>
-                    @endif
+
                     <input name="email" type="text" class="form-control" id="email" required="" placeholder="E-Mail Address">
 
                     <input type="submit" id="forgot_button" value="Confirm">
@@ -160,18 +153,27 @@
 
 <!-- start home -->
 <section id="home">
+
     <div class="container" id="homecontainer">
         <div class="row">
             <div class="owl-carousel">
-                <div><img src="{{asset ('images/travel11.jpg')}}"></div>
-                <div><img src="{{asset ('images/travel2.jpg')}}"></div>
-                <div><img src="{{asset ('images/travel3.jpeg')}}"></div>
+
+                    <div><img src="{{asset ('images/travel11.jpg')}}"></div>
+                    <div><img src="{{asset ('images/travel2.jpg')}}"></div>
+                    <div><img src="{{asset ('images/travel3.jpeg')}}"></div>
+
             </div>
             <div class="col-md-offset-2 col-md-8 main-content-box">
                 <h1 class="wow fadeIn" data-wow-offset="50" data-wow-delay="0.9s">
                     <div class="element">
                         <div class="sub-element">
-                            Find your destination and leave your dreams come true !
+                            You need a trip?
+                        </div>
+                        <div class="sub-element">
+                            Don't miss your chance!
+                        </div>
+                        <div class="sub-element">
+                            Get your ticket now!
                         </div>
                     </div>
                 </h1>

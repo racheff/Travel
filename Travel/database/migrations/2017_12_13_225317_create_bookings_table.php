@@ -16,11 +16,10 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('agent_id')->unsigned();
             $table->integer('destination_id')->unsigned();
             $table->string('status', 50);
+            $table->date('from');
             $table->timestamps();
-            $table->text('details');
         });
     }
 

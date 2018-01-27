@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class PaymentsController extends Controller
@@ -23,7 +23,12 @@ class PaymentsController extends Controller
      */
     public function create()
     {
-        //
+        $guest = Auth::guest();
+        if(!$guest){
+            return view('payments.create');
+        }else{
+            return view('payments.index')->with('message', 'You have to log in first');
+        }
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Agents;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AgentsController extends Controller
 {
@@ -37,19 +38,27 @@ class AgentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $request->validate([
-            'first_name' => 'required|unique:agents|max:255',
-            'last_name' => 'required|max:255',
-            'company' => 'required|max:255'
-        ]);
-        $agents = new Agents([
-            'first_name' => $request->get('first_name'),
-            'last_name' => $request->get('last_name'),
-            'company' => $request->get('company')
-        ]);
-        $agents->save();
-        return redirect('/destinations')->with('success', 'Added new destination!');
+        $rules = array(
+            'first_name'       => 'required',
+            'last_name'       => 'required',
+            'company'       => 'required'
+
+        );
+        $validator = Validator::make($request->all(), $rules);
+        // process the login
+        if ($validator->fails()) {
+            return redirect('agents/create')
+                ->withErrors($validator)
+                ->withInput($request->all())->with('message', 'There is a problem ...');
+        } else {
+            $agents = new Agents([
+                'first_name' => $request->get('first_name'),
+                'last_name' => $request->get('last_name'),
+                'company' => $request->get('company')
+            ]);
+            $agents->save();
+            return redirect('agents/create')->with('message', 'Added new agent!');
+        }
     }
 
     /**

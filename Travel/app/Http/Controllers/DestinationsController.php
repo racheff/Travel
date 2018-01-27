@@ -7,6 +7,7 @@ use App\Agents;
 use App\Destinations;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -19,10 +20,10 @@ class DestinationsController extends Controller
      */
     public function index()
     {
-
+        $id = Auth::id();
+        $user = new User();
         $destinations = Destinations::with('agents')->get();
         return view('Destinations.index') ->with('destinations', $destinations);
-
     }
 
 
@@ -64,7 +65,7 @@ class DestinationsController extends Controller
         if ($validator->fails()) {
             return redirect('destinations/create')
                 ->withErrors($validator)
-                ->withInput($request->all());
+                ->withInput($request->all())->with('message', 'There is a problem ...');
         } else {
             $destinations = new Destinations([
                 'name' => $request->get('name'),
@@ -75,7 +76,7 @@ class DestinationsController extends Controller
                 'agent_id' => $request->get('agent_id')
             ]);
             $destinations->save();
-            return redirect('destinations');
+            return redirect('destinations/create')->with('message', 'The destination was successfully created!');
         }
 
     }
@@ -127,8 +128,8 @@ class DestinationsController extends Controller
             return redirect('destinations/index')->with('success', 'Successfully updated!');
 
     }
-    public function  currentDest($id){
-
+    public function  book($id){
+        echo $id;
     }
     /**
      * Remove the specified resource from storage.
@@ -141,6 +142,6 @@ class DestinationsController extends Controller
         //
         $destination = Destinations::find($id);
         $destination->delete();
-        return redirect('destinations')->with('success', 'Deleted!');
+        return redirect('destinations')->with('success', 'Destination was deleted!');
     }
 }

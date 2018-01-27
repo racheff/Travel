@@ -1,16 +1,16 @@
 @include('layouts.header')
 <section id="about">
     <div class="container">
+
         <div class="row">
             <div class="col-md-6 heading">
                 <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><div>Create a Destination</div></h2>
             </div>
-            @if (Session::has('message'))
-                <div class="alert alert-info">{{ Session::get('message') }}</div>
+            @if (\Session::has('message'))
+                <div class="alert alert-info col-md-6">{{\Session::get('message') }}</div>
             @endif
-
-
             <div class="container col-md-6 edit_dest" id="portfolio">
+
                 <div class="row">
                     <form method="post" action="{{url('destinations')}}">
                         <div class="form-group row">

@@ -64,7 +64,7 @@ body .navbar-default .navbar-brand{font-size: 26px}
 
 
 body #contact .social-icon{text-align: center;}
-body .element{font-size: 70px;height:auto;min-height: 200px;text-align: center;text-shadow:2px 1px #000}
+body .element{font-size: 65px;height:auto;min-height: 200px;text-align: center;text-shadow:1px 1px #000; text-transform: capitalize}
 .blue-text{color:#2D74A8;}
 body #home .btn:hover{background:#2D74A8}
 @media (max-width: 1199px){body .element{font-size: 55px;}}
@@ -124,11 +124,9 @@ header .container i{font-size: 26px;color:#fff;vertical-align: middle;margin-rig
 /*owl-carousel*/
 body .owl-nav{display:block;}
 body .owl-prev{position: absolute;
-    top: 48.5%;
+    top: 45%;
     left: 5%;
-    font-size: 22px;
-    border: 2px solid #fff;
-    border-radius: 50%;
+    font-size: 30px;
     padding-top: 5px;
     padding-left: 11px;
     padding-right: 15px;
@@ -138,10 +136,8 @@ body .owl-prev{position: absolute;
     opacity: .5;
   }
 body .owl-next{position: absolute;
-    top: 48.5%;
-    right: 5%;font-size: 22px;
-    border: 2px solid #fff;
-    border-radius: 50%;
+    top: 45%;
+    right: 5%;font-size: 30px;
     padding-top: 5px;
     padding-left: 15px;
     padding-right: 11px;
@@ -159,6 +155,7 @@ body .owl-prev:hover, .owl-next:hover{
   transform: scale(1.1);
   transition:0.5s;
 }
+.nav_shadow{box-shadow: 0 3px 5px rgba(0, 0, 0, 0.10), 0 3px 5px rgba(0, 0, 0, 0.15);}
 
 
 
@@ -169,7 +166,7 @@ body .owl-prev:hover, .owl-next:hover{
 
 
 
-
+.overlay-home{background:rgba(0,0,0,0.5);position:absolute;top:0;left:0;z-index: 99999}
   /*phone*/
 @media (max-width: 467px){
 .inner-text-block {text-align: left;width: 80%;margin: 0 auto;margin-bottom: 10px;padding:0;}
@@ -203,11 +200,11 @@ body .col-md-4{clear:both;}
 h2 span{display:block;text-transform: none;color:#fff;font-size:30px;}
 h2 div{text-align: left;color:rgb(124,203,242); text-transform: capitalize;font-size: 50px}
 #offers p{color: rgb(82,84,83);}
-body #portfolio{padding-top: 0;padding-bottom: 0;clear: both;}
+body #portfolio{padding-top: 20px;padding-bottom: 0;clear: both;}
 .text_under_heading{text-align: left;}
 .text_under_heading p{color: rgb(82,84,83);font-size: 20px;}
 .hot{font-size: 20px;color: red;text-align: right;display: inline-block;vertical-align: top;padding-left: 5px;}
-.login_register_popup{background: rgba(0,0,0,0.8);padding:10px 10px;position:fixed;top:0px;right:0;z-index: 99999;border-bottom-left-radius: 0;}
+.login_register_popup{background: rgba(0,0,0,0.8);padding:10px 10px;position:fixed;top:70px;right:0;z-index: 99999;border-bottom-left-radius: 0;}
 body #login{padding-bottom:0;padding-top: 10px;max-width: 300px;width:100%;}
 body #login .form-control, body #register .form-control, body #forgot .form-control{width: 300px;}
 body #login_button, #register_button, #forgot_button{float:right;
@@ -264,3 +261,12 @@ body #interested-in .fa, body #about .fa{border:none;
     font-size: 30px;width:auto;height: 50px;  line-height:35px;  float: left;}
 .detailed_box h1{color:rgb(124,203,242)}
 .detailed_box p{color:#fff}
+.agents_table{    text-align: center;
+    margin: 25px auto;
+   border: 1px solid #fff;
+    float: none;}
+.agents_table th{text-align: center;border: 1px solid #fff;padding: 5px 0;}
+body #login_button, body #register_button{margin:0;}
+body .alert{text-align: center;clear:left;}
+.login_register_popup a{text-transform: uppercase}
+.logout_link{float:right;}

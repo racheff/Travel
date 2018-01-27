@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Destinations;
+use App\User;
+use App\Bookings;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookingsController extends Controller
 {
@@ -13,7 +18,11 @@ class BookingsController extends Controller
      */
     public function index()
     {
-        //
+        $id = Auth::id();
+        $bookings = Bookings::with('destinations')->get()->where('user_id', $id)->where('status', 'wait');
+
+        return view('bookings.index')->with('bookings', $bookings);
+
     }
 
     /**
@@ -21,9 +30,11 @@ class BookingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
-    {
-        //
+    public function create($id){
+        $request = new Request();
+        $req  =  $request->get('date');
+        return view('bookings.create')->with('destination_id', $id);
+
     }
     /**
      * Store a newly created resource in storage.
@@ -33,7 +44,18 @@ class BookingsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $currentuserid = Auth::id();
+
+        $booking = new Bookings([
+            'user_id' => $currentuserid,
+            'destination_id' => $request->get('destination_id'),
+            'status' => 'wait',
+            'from' => $request->get('date')
+        ]);
+        $booking->save();
+        return redirect('/bookings')->with('message', 'Successfully booked ! Now you have to pay for it and check the requirements');
+
     }
 
     /**
@@ -78,6 +100,11 @@ class BookingsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $bookings = Bookings::find($id);
+        $bookings->delete();
+        return redirect('bookings')->with('success', 'Booking was deleted!');
+    }
+    public function bookDestination($id){
+
     }
 }

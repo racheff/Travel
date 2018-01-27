@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Destinations;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $destinations = Destinations::with('agents')->get();
+        return view('welcome')->with('destinations', $destinations);
     }
 }

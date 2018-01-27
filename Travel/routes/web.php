@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('destinations', 'DestinationsController');
 Route::resource('agents', 'AgentsController');
 Route::resource('bookings', 'BookingsController');
+Route::resource('payments', 'PaymentsController');
+Route::get('/bookings/create/{id}', 'BookingsController@create');

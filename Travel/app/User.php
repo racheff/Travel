@@ -26,8 +26,17 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public  function  isAdmin(){
-        return User::all('admin');
+    public  function  isAdmin($id){
+        $isAdmin = false;
+        $user = User::all()->where('id',$id)->toArray();
+        if($user[0]['admin'] == 1){
+            $isAdmin = true;
+        }
 
+        return $isAdmin;
+    }
+    public function bookings()
+    {
+        return $this->hasMany('App\Bookings','user_id');
     }
 }
