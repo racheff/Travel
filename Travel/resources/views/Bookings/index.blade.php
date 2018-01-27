@@ -11,7 +11,11 @@
                 @if (\Session::has('success'))
                     <div class="alert alert-info">{{\Session::get('success') }}</div>
                 @endif
-
+                <div class="row">
+                    <div class="col-md-6 text_below_h2">
+                        <p>Once you've book a destination, you have to pay for it. Payments are depending on destinations(duration and location) and vehicles.Prices are different for every destination. When you creating a booking you must set a date.Date From and Date to. If destination have duration(for e.g. 6 days) you can't exceed it and you need to chooce only date From.You can delete the book before pay for it.</p>
+                    </div>
+                </div>
                 <div class="row">
                     <table class="agents_table col-md-6">
                         <tr>

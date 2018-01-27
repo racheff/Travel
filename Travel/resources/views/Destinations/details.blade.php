@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-6 heading">
 
-                <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><div class="detailed"> <a href="{{URL::to('destinations')}}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>{{$destinations->name}}<span class="hot">HOT</span><span>{{$destinations->description}}</span></div></h2>
+                <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><div class="detailed"> <a href="{{URL::to('destinations')}}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>{{$destinations->name}}<span>{{$destinations->description}}</span></div></h2>
             </div>
 
             <div class="container" id="portfolio">

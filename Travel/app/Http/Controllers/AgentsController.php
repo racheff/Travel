@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Agents;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use App\User;
 class AgentsController extends Controller
 {
     /**
@@ -26,8 +26,12 @@ class AgentsController extends Controller
      */
     public function create()
     {
-        //
-        return view('Agents.create');
+        if(User::isAdmin()){
+            return view('Agents.create');
+        }else{
+            return redirect('agents.create')->with('message', 'You are not authorized to use this action');
+        }
+
     }
 
     /**
@@ -103,6 +107,11 @@ class AgentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(User::isAdmin()) {
+            $agent = Agents::find($id);
+            $agent->delete();
+        }else{
+            return redirect('agents')->with('message', 'You are not authorized to use this action');
+        }
     }
 }

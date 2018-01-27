@@ -15,7 +15,13 @@
                     <form method="post" action="{{url('bookings')}}">
                         <div class="form-group row">
                             {{csrf_field()}}
-                            {{$destination_id}}
+                            <span>Booking for user: {{ Auth::user()->name }}</span>
+                            @foreach($destination as $dest)
+                                <span>Destination: {{$dest->name}}</span>
+                                <span>Agent:{{$dest->agents->first_name}} {{$dest->agents->last_name}} "{{$dest->agents->company}}"</span>
+                                <span>Duration: {{$dest->duration}}</span>
+                               <span>Vehicle:</span>
+                            @endforeach
                             <input type="hidden" name="destination_id" value="{{$destination_id}}">
                             <div class="col-sm-12">
                                 <input type="date" class="form-control form-control-lg" id="lgFormGroupInput" name="date">

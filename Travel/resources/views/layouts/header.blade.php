@@ -58,7 +58,7 @@
                 <li><a href="#">ABOUT US</a></li>
                 <li><a href="#">TRAVEL AGENTS</a></li>
                 <li><a href="#">DESTINATIONS</a></li>
-                <li><a href="#">bookings</a></li>
+                <li><a href="#">BOOKINGS</a></li>
                 <li><a href="#">CONTACT US</a></li>
             </ul>
 

@@ -117,9 +117,11 @@ if(!isMobile.any()){
         if (st > lastScrollTop && st > navbarHeight){
             // Scroll Down
             $('.templatemo-nav').removeClass('sticky animated slideInDown');
+            $('.login_register_popup').hide().removeClass("animated slideInDown");
         } else {
             // Scroll Up
             if(st + $(window).height() < $(document).height()) {
+                $('.login_register_popup').show().addClass("animated slideInDown");
                 $('.templatemo-nav').addClass('sticky animated slideInDown');
                 
             }

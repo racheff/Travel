@@ -32,8 +32,9 @@ class BookingsController extends Controller
      */
     public function create($id){
         $request = new Request();
+        $destinations = Destinations::with('agents')->where('id', $id)->get();
         $req  =  $request->get('date');
-        return view('bookings.create')->with('destination_id', $id);
+        return view('bookings.create')->with('destination_id', $id)->with('destination',$destinations);
 
     }
     /**

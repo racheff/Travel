@@ -4,15 +4,19 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 heading">
-                <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><div>Destinations<span class="hot">HOT</span><span>Grab your best offer for the best price.</span></div></h2>
+                <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><div>Destinations</div></h2>
             </div>
 
             <div class="container" id="portfolio">
-                @if (\Session::has('success'))
-                    <div class="alert alert-info">{{\Session::get('success') }}</div>
-                @endif
-                <a href="{{ URL::to('destinations/create') }}" class="btn btn-infog create_dest">Create a destination</a>
 
+                <div class="row">
+                    <div class="col-md-6 text_below_h2">
+                        <p> Destination prices are not visible now, because you need to book it and select a vehicle...Check destinations below and you'll see the "Book" button to proceed next step.</p>
+                    </div>
+                </div>
+                @if (\Session::has('message'))
+                    <div class="alert alert-info">{{\Session::get('message') }}</div>
+                @endif
                 <div class="row">
                     @foreach($destinations as $destination)
 

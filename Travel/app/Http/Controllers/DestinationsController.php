@@ -20,8 +20,6 @@ class DestinationsController extends Controller
      */
     public function index()
     {
-        $id = Auth::id();
-        $user = new User();
         $destinations = Destinations::with('agents')->get();
         return view('Destinations.index') ->with('destinations', $destinations);
     }
@@ -38,8 +36,11 @@ class DestinationsController extends Controller
      */
     public function create()
     {
-        //
-        return view('destinations.create');
+        if(User::isAdmin()){
+            return view('destinations.create');
+        }else{
+        return redirect('destinations')->with('message', 'You are not authorized to use this action');
+        }
 
     }
 
@@ -103,8 +104,13 @@ class DestinationsController extends Controller
      */
     public function edit($id)
     {
-        $destinations = Destinations::find($id);
-        return view('destinations.edit', compact('destination', 'id'))->with('destinations', $destinations);
+        if(User::isAdmin()){
+            $destinations = Destinations::find($id);
+            return view('destinations.edit', compact('destination', 'id'))->with('destinations', $destinations);
+        }else{
+            return redirect('destinations')->with('message', 'You are not authorized to use this action');
+        }
+
     }
 
     /**
@@ -116,6 +122,7 @@ class DestinationsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if(User::isAdmin()){
 
             $destinations = Destinations::find($id);
             $destinations->name = $request->get('name');
@@ -125,7 +132,12 @@ class DestinationsController extends Controller
             $destinations->description = $request->get('description');
             $destinations->agent_id = $request->get('agent_id');
             $destinations->save();
-            return redirect('destinations/index')->with('success', 'Successfully updated!');
+            return redirect('destinations')->with('message', 'Successfully updated!');
+        }else{
+            return redirect('destinations')->with('message', 'You are not authorized to use this action');
+        }
+
+
 
     }
     public function  book($id){
@@ -139,9 +151,13 @@ class DestinationsController extends Controller
      */
     public function destroy($id)
     {
-        //
-        $destination = Destinations::find($id);
-        $destination->delete();
-        return redirect('destinations')->with('success', 'Destination was deleted!');
+        if(User::isAdmin()){
+            $destination = Destinations::find($id);
+            $destination->delete();
+            return redirect('destinations')->with('message', 'Destination was deleted!');
+        }else{
+            return redirect('destinations')->with('message', 'You are not authorized to use this action');
+        }
+
     }
 }
