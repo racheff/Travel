@@ -77,4 +77,8 @@ $(document).ready(function(){
          $("#login").hide();
          $("#forgot").show();
     });
+    $('#footer_nav').click(function(e){
+        $("html, body").animate({ scrollTop: $("#contact").offset().top }, 800);
+        return true;
+    });
 });

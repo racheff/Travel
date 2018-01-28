@@ -412,14 +412,13 @@ header .social-icon li a
 	{
 		background: #202020;
 	}
-#contact .form-control, #addnews .form-control, #login .form-control, #register .form-control, #forgot .form-control
+.form-control
 	{
 		background: transparent;
 		border: 1px solid #28a7e9;
 		border-radius: 2px;
 		box-shadow: none;
 		color: #fff;
-		margin-top: 6px;
 		margin-bottom: 16px;
 	}
 #contact label, #addnews label, #login label
@@ -430,16 +429,22 @@ header .social-icon li a
 	{
 		height: 50px;
 	}
-#contact input[type="submit"], #addnews input[type="submit"], #login input[type="submit"],#register input[type="submit"],#forgot input[type="submit"]
+ input[type="submit"], #addnews input[type="submit"], #login input[type="submit"],#register input[type="submit"],#forgot input[type="submit"]
 	{
-		background: #28a7e9;
+	 text-transform: uppercase;
+	 letter-spacing: 1px;
+	 -webkit-border-radius: 2px;
+	 -moz-border-radius: 2px;
+	 border-radius: 2px;
+		background:#28a7e9;
 		font-weight: bold;
 		-webkit-transition: all 0.4s ease-in-out;
 		        transition: all 0.4s ease-in-out;
 	}
-#contact input[type="submit"]:hover, #addnews input[type="submit"]:hover, #login input[type="submit"]:hover
+input[type="submit"]:hover, #contact input[type="submit"]:hover, #login input[type="submit"]:hover
 	{
 		background: transparent;
+	border:1px solid #28a7e9
 	}
 #contact address, #addnews address, #login address
 	{

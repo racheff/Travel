@@ -15,39 +15,38 @@
                     <form method="post" action="{{url('destinations')}}">
                         <div class="form-group row">
                             {{csrf_field()}}
-
-                            <div class="col-sm-12">
-
-                                <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" placeholder="Name" name="name">
+                            <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" name="name">
                             </div>
 
-                            <div class="col-sm-12">
-
-                                <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" placeholder="Country" name="country">
+                            <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Country</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" name="country">
                             </div>
 
-                            <div class="col-sm-12">
+                            <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Duration</label>
+                            <div class="col-sm-10">
 
-                                <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" placeholder="Duration" name="duration">
+                                <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" name="duration">
                             </div>
 
-                            <div class="col-sm-12">
-
-                                <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" placeholder="Image(URL)" name="image">
+                            <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Image(URL)</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" name="image">
                             </div>
 
-                            <div class="col-sm-12">
-
-                                <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" placeholder="Description" name="description">
+                            <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Description</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" name="description">
                             </div>
 
-                            <div class="col-sm-12">
-
+                            <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Agent</label>
+                            <div class="col-sm-10">
                                 <select name="agent_id" class="form-control form-control-lg select">
                                     <?php
                                        $agents = \App\Agents::all();
                                     ?>
-                                    <option>Agent Company</option>
                                     @foreach($agents as $agent)
                                         <option value="{{$agent->id}}" class="selectors">{{$agent->company}}</option>
                                     @endforeach

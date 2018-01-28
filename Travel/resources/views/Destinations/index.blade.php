@@ -32,15 +32,14 @@
 
                                     <a href="{{action('DestinationsController@show', $destination->id )}}" class="btn btn-default">Details</a>
                                     @if (Route::has('login'))
-                                        @if(auth()->user('admin') == true)
-                                                <a href="{{ URL::to('bookings/create/' . $destination->id) }}" class="btn btn-default">Book it!</a>
-                                                <a href="{{ URL::to('destinations/' . $destination->id . '/edit') }}" class="btn btn-default">Edit</a>
-                                                <form action="{{action('DestinationsController@destroy', $destination->id )}}" method="post" class="delete_form">
-                                                    {{csrf_field()}}
-                                                    <input name="_method" type="hidden" value="DELETE">
-                                                    <button class="btn btn-danger" type="submit">Delete</button>
-                                                </form>
-
+                                        <a href="{{ URL::to('bookings/create/' . $destination->id) }}" class="btn btn-default">Book it!</a>
+                                        @if(\App\User::isAdmin())
+                                        <a href="{{ URL::to('destinations/' . $destination->id . '/edit') }}" class="btn btn-default">Edit</a>
+                                        <form action="{{action('DestinationsController@destroy', $destination->id )}}" method="post" class="delete_form">
+                                            {{csrf_field()}}
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                        </form>
                                         @endif
                                     @endif
                                 </div>

@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 
 use App\Agents;
 use App\Destinations;
+use App\Http\Requests\UpdateDestination;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class DestinationsController extends Controller
@@ -123,8 +122,8 @@ class DestinationsController extends Controller
     public function update(Request $request, $id)
     {
         if(User::isAdmin()){
-
             $destinations = Destinations::find($id);
+            $destinations->update($request->all());
             $destinations->name = $request->get('name');
             $destinations->country = $request->get('country');
             $destinations->duration = $request->get('duration');

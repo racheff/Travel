@@ -44,5 +44,37 @@ class DestinationsTableSeeder extends Seeder
             'image' => 'http://localhost/images/destinations/Vai_palm_forest.jpg',
             'description' => 'Island Crete is waiting for you'
         ]);
+        DB::table('Destinations')->insert([
+            'agent_id' => '3',
+            'name' => 'Kayak Holidays',
+            'country' => 'Europe',
+            'duration' => 'not set',
+            'image' => 'http://localhost/images/destinations/kayak-holidays.jpg',
+            'description' => 'Will stop your breath'
+        ]);
+        DB::table('Destinations')->insert([
+            'agent_id' => '2',
+            'name' => 'Costa Rica volcano',
+            'country' => 'North America',
+            'duration' => '1 day',
+            'image' => 'http://localhost/images/destinations/Costa-Rica.jpg',
+            'description' => 'The great view of volcano'
+        ]);
+        DB::table('Destinations')->insert([
+            'agent_id' => '1',
+            'name' => 'Eiffel Tower',
+            'country' => 'France, Paris',
+            'duration' => '2 days',
+            'image' => 'http://localhost/images/destinations/eiffel-tower-paris.jpg',
+            'description' => 'If you didn\'t check it , you have to!'
+        ]);
+        DB::table('Destinations')->insert([
+            'agent_id' => '1',
+            'name' => 'India temple',
+            'country' => 'India',
+            'duration' => '8 days',
+            'image' => 'http://localhost/images/destinations/temple-india.jpg',
+            'description' => '8 days pleasure in temple'
+        ]);
     }
 }

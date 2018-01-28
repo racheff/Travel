@@ -274,3 +274,6 @@ body .alert{text-align: center;clear:left;}
 .text_below_h2{text-align: center;margin:0 auto;float:none;}
 .animated{color:#fff;}
 .edit_dest span{display:block;}
+body .col-form-label{line-height:32px;
+    padding-right: 0;}
+.col-sm-10{padding-left: 0;}

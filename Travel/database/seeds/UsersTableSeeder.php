@@ -18,5 +18,11 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('admin'),
             'admin' => boolval(true)
         ]);
+        DB::table('Users')->insert([
+            'name' => 'User',
+            'email' => 'user@travelagency.com',
+            'password' => bcrypt('user'),
+            'admin' => boolval(false)
+        ]);
     }
 }

@@ -29,7 +29,7 @@ class AgentsController extends Controller
         if(User::isAdmin()){
             return view('Agents.create');
         }else{
-            return redirect('agents.create')->with('message', 'You are not authorized to use this action');
+            return redirect('agents')->with('message', 'You are not authorized to use this action');
         }
 
     }
@@ -84,7 +84,12 @@ class AgentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        if(User::isAdmin()){
+            $agent = Agents::find($id);
+            return view('agents.edit', compact('agent', 'id'))->with('agent', $agent);
+        }else{
+            return redirect('agents')->with('message', 'You are not authorized to use this action');
+        }
     }
 
     /**
@@ -96,7 +101,17 @@ class AgentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if(User::isAdmin()){
+            $agent = Agents::find($id);
+            $agent->update($request->all());
+            $agent->first_name = $request->get('first_name');
+            $agent->last_name = $request->get('last_name');
+            $agent->company = $request->get('company');
+            $agent->save();
+            return redirect('agents')->with('message', 'Successfully updated!');
+        }else{
+            return redirect('agents')->with('message', 'You are not authorized to use this action');
+        }
     }
 
     /**

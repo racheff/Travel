@@ -14,6 +14,9 @@
                             <th>First name</th>
                             <th>Last name</th>
                             <th>Company</th>
+                            @if(\App\User::isAdmin())
+                            <th>Action</th>
+                            @endif
                         </tr>
                         @foreach($agents as $agent)
                             <tr>
@@ -21,6 +24,16 @@
                                 <th>{{$agent->first_name}}</th>
                                 <th>{{$agent->last_name}}</th>
                                 <th>{{$agent->company}}</th>
+                                @if(\App\User::isAdmin())
+                                <th>
+                                    <a href="{{ URL::to('agents/' . $agent->id . '/edit') }}" class="btn btn-success">Edit</a>
+                                    <form action="{{action('AgentsController@destroy', $agent->id )}}" method="post" class="delete_form">
+                                        {{csrf_field()}}
+                                        <input name="_method" type="hidden" value="DELETE">
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
+                                </th>
+                                @endif
                             </tr>
                         @endforeach
                     </table>

@@ -8,7 +8,7 @@
             </div>
             <div class="container" id="portfolio">
         <div class="row">
-            {{\App\User::isAdmin(Auth::id(\Illuminate\Support\Facades\Auth::id()))}}
+     
         </div>
     </div>
         </div>
