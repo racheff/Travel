@@ -21,6 +21,7 @@ class CreateDestinationsTable extends Migration
             $table->string('duration');
             $table->string('image');
             $table->string('description');
+            $table->double('price');
         });
     }
 

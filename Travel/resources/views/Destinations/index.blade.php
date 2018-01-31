@@ -3,17 +3,26 @@
 <section id="about">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 heading">
-                <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><div>Destinations</div></h2>
+            <div class="row">
+                <div class="col-md-6 heading">
+                    <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><div>Search a destination<span class="hot">new</span></div></h2>
+                </div>
+                <div class="container col-md-6 edit_dest">
+                    <div class="row">
+                        <form method="" action="{{URL::to('search/')}}">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-lg" required="" id="searchfield" name="destination">
+                                <button type="submit" id="search">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
 
             <div class="container" id="portfolio">
 
-                <div class="row">
-                    <div class="col-md-6 text_below_h2">
-                        <p> Destination prices are not visible now, because you need to book it and select a vehicle...Check destinations below and you'll see the "Book" button to proceed next step.</p>
-                    </div>
-                </div>
                 @if (\Session::has('message'))
                     <div class="alert alert-info">{{\Session::get('message') }}</div>
                 @endif
@@ -24,14 +33,17 @@
 
                             <div class="portfolio-thumb">
                                 <img src="{{$destination->image}}" class="img-responsive" alt="portfolio img 2">
+                                @if($destination->price < 230)
+                                    <span class="promo_label">Promotion</span>
+                                @endif
                                 <div class="portfolio-overlay">
                                     <h4>Name: {{$destination->name}}</h4>
                                     <p>Duration: {{$destination->duration}}</p>
-                                    <p>Description: {{$destination->description}}</p>
+                                    <p>Price: {{$destination->price}}USD</p>
                                     <p>Travel Agent: {{$destination->agents->company}}</p>
 
                                     <a href="{{action('DestinationsController@show', $destination->id )}}" class="btn btn-default">Details</a>
-                                    @if (Route::has('login'))
+                                    @if (!\Illuminate\Support\Facades\Auth::guest())
                                         <a href="{{ URL::to('bookings/create/' . $destination->id) }}" class="btn btn-default">Book it!</a>
                                         @if(\App\User::isAdmin())
                                         <a href="{{ URL::to('destinations/' . $destination->id . '/edit') }}" class="btn btn-default">Edit</a>

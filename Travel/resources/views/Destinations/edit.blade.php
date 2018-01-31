@@ -52,6 +52,10 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Price</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" name="price" value="{{$destinations->price}}">
+                            </div>
                             <div class="col-sm-12">
                                 <input type="submit" class="btn btn-primary">
                             </div>

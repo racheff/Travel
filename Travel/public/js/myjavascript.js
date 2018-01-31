@@ -81,4 +81,10 @@ $(document).ready(function(){
         $("html, body").animate({ scrollTop: $("#contact").offset().top }, 800);
         return true;
     });
+    $('#search').click(function (e) {
+        e.preventDefault();
+        var nameValue = document.getElementById("searchfield").value;
+        var baseLocation = window.location.origin;
+        window.location.replace(baseLocation + "/destinations/search/" + nameValue);
+    })
 });

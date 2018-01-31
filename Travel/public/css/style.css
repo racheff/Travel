@@ -276,4 +276,33 @@ body .alert{text-align: center;clear:left;}
 .edit_dest span{display:block;}
 body .col-form-label{line-height:32px;
     padding-right: 0;}
-.col-sm-10{padding-left: 0;}
+.col-sm-10{padding-left: 0;padding-right:0}
+.promo_label{
+    font: 700 14px/12px Arial,Helvetica,sans-serif;
+    color: white;
+    background: #f13340;
+    text-transform: uppercase;
+    padding: 9px 0 7px;
+    text-shadow: 1px 1px rgba(0,0,0,0.24);
+    width: 130px;
+    text-align: center;
+    display: block;
+    position: absolute;
+    right: -29px;
+    top: 22px;
+    z-index: 1;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.destination-box{
+    overflow: hidden;
+}
+.portfolio-thumb{position: relative}
+#searchfield{position: relative}
+#search{background: transparent;border:none;position: absolute; top:0; right:20px;
+    border-left:1px solid #28a7e9;
+    height: 33px;}
+html body #interested-in .fa, html body #about .fa.fa-search{font-size:18px;line-height:33px;}
+#search:focus{outline: 0;}
+.search_container{margin:0 auto;float:none;}

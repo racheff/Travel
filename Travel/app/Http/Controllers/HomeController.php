@@ -24,7 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $destinations = Destinations::with('agents')->get();
-        return view('welcome')->with('destinations', $destinations);
+
     }
 }

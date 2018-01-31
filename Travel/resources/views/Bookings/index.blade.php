@@ -20,6 +20,7 @@
                     <table class="agents_table col-md-6">
                         <tr>
                             <th>Destination</th>
+                            <th>Price</th>
                             <th>Status</th>
                             <th>From</th>
                             <th>Duration</th>
@@ -28,6 +29,7 @@
                         @foreach($bookings as $booking)
                             <tr>
                                 <th>{{$booking->destinations->name}}({{$booking->destinations->country}})</th>
+                                <th>{{$booking->destinations->price}} USD</th>
                                 <th>{{$booking->status}}</th>
                                 <th>{{$booking->from}}</th>
                                 <th>{{$booking->destinations->duration}}</th>

@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index')->name('welcome');
 
 Auth::routes();
 
@@ -24,3 +22,12 @@ Route::resource('agents', 'AgentsController');
 Route::resource('bookings', 'BookingsController');
 Route::resource('payments', 'PaymentsController');
 Route::get('/bookings/create/{id}', 'BookingsController@create');
+Route::get('destinations/search/{name}', function ($name) {
+    $destinations = App\Destinations::search($name)->get();
+    if($destinations->isNotEmpty()){
+        return view('Destinations.index')->with('destinations', $destinations);
+    }else{
+        return redirect('destinations')->with('message', 'No Results Found');
+    }
+
+});

@@ -57,7 +57,8 @@ class DestinationsController extends Controller
             'duration'       => 'required',
             'image'       => 'required',
             'description'       => 'required',
-            'agent_id'       => 'required'
+            'agent_id'       => 'required',
+            'price' => 'required'
 
         );
         $validator = Validator::make($request->all(), $rules);
@@ -73,7 +74,8 @@ class DestinationsController extends Controller
                 'duration' => $request->get('duration'),
                 'image' => $request->get('image'),
                 'description' => $request->get('description'),
-                'agent_id' => $request->get('agent_id')
+                'agent_id' => $request->get('agent_id'),
+                'price' => $request->get('price')
             ]);
             $destinations->save();
             return redirect('destinations/create')->with('message', 'The destination was successfully created!');
@@ -130,6 +132,7 @@ class DestinationsController extends Controller
             $destinations->image = $request->get('image');
             $destinations->description = $request->get('description');
             $destinations->agent_id = $request->get('agent_id');
+            $destinations->price = $request->get('price');
             $destinations->save();
             return redirect('destinations')->with('message', 'Successfully updated!');
         }else{

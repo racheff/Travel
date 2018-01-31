@@ -18,7 +18,8 @@ class DestinationsTableSeeder extends Seeder
             'country' => 'Africa',
             'duration' => '3 days',
             'image' => 'http://localhost/images/destinations/zimbabwe.jpg',
-            'description' => 'Journey to Zimbabwe'
+            'description' => 'Journey to Zimbabwe',
+            'price' => 250
         ]);
         DB::table('Destinations')->insert([
             'agent_id' => '2',
@@ -26,7 +27,8 @@ class DestinationsTableSeeder extends Seeder
             'country' => 'North America',
             'duration' => '2 days',
             'image' => 'http://localhost/images/destinations/East_island_tours.jpg',
-            'description' => 'Best Vacation'
+            'description' => 'Best Vacation',
+            'price' => 500
         ]);
         DB::table('Destinations')->insert([
             'agent_id' => '3',
@@ -34,7 +36,8 @@ class DestinationsTableSeeder extends Seeder
             'country' => 'Brazil',
             'duration' => '1 day',
             'image' => 'http://localhost/images/destinations/Brazil_tours.jpg',
-            'description' => 'You must see it !'
+            'description' => 'You must see it !',
+            'price' => 300
         ]);
         DB::table('Destinations')->insert([
             'agent_id' => '4',
@@ -42,7 +45,8 @@ class DestinationsTableSeeder extends Seeder
             'country' => 'Europe',
             'duration' => '6 day',
             'image' => 'http://localhost/images/destinations/Vai_palm_forest.jpg',
-            'description' => 'Island Crete is waiting for you'
+            'description' => 'Island Crete is waiting for you',
+            'price' => 222.5
         ]);
         DB::table('Destinations')->insert([
             'agent_id' => '3',
@@ -50,7 +54,8 @@ class DestinationsTableSeeder extends Seeder
             'country' => 'Europe',
             'duration' => 'not set',
             'image' => 'http://localhost/images/destinations/kayak-holidays.jpg',
-            'description' => 'Will stop your breath'
+            'description' => 'Will stop your breath',
+            'price' => 199.99
         ]);
         DB::table('Destinations')->insert([
             'agent_id' => '2',
@@ -58,7 +63,8 @@ class DestinationsTableSeeder extends Seeder
             'country' => 'North America',
             'duration' => '1 day',
             'image' => 'http://localhost/images/destinations/Costa-Rica.jpg',
-            'description' => 'The great view of volcano'
+            'description' => 'The great view of volcano',
+            'price' => 700
         ]);
         DB::table('Destinations')->insert([
             'agent_id' => '1',
@@ -66,7 +72,8 @@ class DestinationsTableSeeder extends Seeder
             'country' => 'France, Paris',
             'duration' => '2 days',
             'image' => 'http://localhost/images/destinations/eiffel-tower-paris.jpg',
-            'description' => 'If you didn\'t check it , you have to!'
+            'description' => 'If you didn\'t check it , you have to!',
+            'price' => 99.9
         ]);
         DB::table('Destinations')->insert([
             'agent_id' => '1',
@@ -74,7 +81,8 @@ class DestinationsTableSeeder extends Seeder
             'country' => 'India',
             'duration' => '8 days',
             'image' => 'http://localhost/images/destinations/temple-india.jpg',
-            'description' => '8 days pleasure in temple'
+            'description' => '8 days pleasure in temple',
+            'price' => 125
         ]);
     }
 }
