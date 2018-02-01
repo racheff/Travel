@@ -55,10 +55,10 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/">HOME</a></li>
-                <li><a href="/about">ABOUT US</a></li>
                 <li><a href="/agents">TRAVEL AGENTS</a></li>
                 <li><a href="/destinations">DESTINATIONS</a></li>
                 <li><a href="/bookings">BOOKINGS</a></li>
+                <li><a href="/payments">PAYMENTS</a></li>
                 <li><a href="#" id="footer_nav">CONTACT US</a></li>
             </ul>
 

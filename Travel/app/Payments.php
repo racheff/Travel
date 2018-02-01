@@ -8,8 +8,12 @@ class Payments extends Model
 {
     protected $fillable = [
         'booking_id',
+        'user_id',
         'amount',
         'status',
-        'details'
+        'card'
     ];
+    public function booking(){
+        return $this->belongsTo('App\Bookings.php', 'booking_id');
+    }
 }

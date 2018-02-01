@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Bookings;
+use App\Payments;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class PaymentsController extends Controller
 {
     /**
@@ -13,7 +15,8 @@ class PaymentsController extends Controller
      */
     public function index()
     {
-        //
+        $payment = Payments::all();
+        return view('payments.index')->with('payment', $payment);
     }
 
     /**
@@ -21,14 +24,20 @@ class PaymentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         $guest = Auth::guest();
         if(!$guest){
-            return view('payments.create');
+            $request = new Request();
+            $payments = Bookings::with('destinations')->where('id', $id)->get();
+            return view('payments.create')->with('booking_id', $id)->with('payment',$payments);
         }else{
             return view('payments.index')->with('message', 'You have to log in first');
+
         }
+
+
+
     }
 
     /**
@@ -39,7 +48,17 @@ class PaymentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id = Auth::id();
+        $pay = new Payments([
+            'booking_id' => $request->get('booking_id'),
+            'user_id' => $id,
+            'amount' => $request->get('amount'),
+            'status' => 'Paid',
+            'card' => $request->get('credit_card')
+        ]);
+        $pay->save();
+        Bookings::updateStatus($request->get('booking_id'));
+        return redirect('/payments')->with('message', 'Successfully paid !');
     }
 
     /**
@@ -84,6 +103,11 @@ class PaymentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $currentBooking = Payments::find($id)->toArray();
+        Bookings::refund($currentBooking['booking_id']) ;
+        $payment = Payments::find($id);
+        $payment->delete();
+
+        return redirect('payments')->with('message', 'Payment refunded !');
     }
 }

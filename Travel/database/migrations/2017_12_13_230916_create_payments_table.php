@@ -17,10 +17,11 @@ class CreatePaymentsTable extends Migration
             $table->increments('id');
             $table->integer('booking_id')
                 ->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->decimal('amount');
             $table->string('status');
+            $table->string('card');
             $table->timestamps();
-            $table->string('details');
         });
     }
 

@@ -22,6 +22,7 @@ Route::resource('agents', 'AgentsController');
 Route::resource('bookings', 'BookingsController');
 Route::resource('payments', 'PaymentsController');
 Route::get('/bookings/create/{id}', 'BookingsController@create');
+Route::get('/payments/create/{id}', 'PaymentsController@create');
 Route::get('destinations/search/{name}', function ($name) {
     $destinations = App\Destinations::search($name)->get();
     if($destinations->isNotEmpty()){

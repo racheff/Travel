@@ -17,33 +17,37 @@
                     </div>
                 </div>
                 <div class="row">
-                    <table class="agents_table col-md-6">
-                        <tr>
-                            <th>Destination</th>
-                            <th>Price</th>
-                            <th>Status</th>
-                            <th>From</th>
-                            <th>Duration</th>
-                            <th>Action</th>
-                        </tr>
-                        @foreach($bookings as $booking)
+                    @if($bookings->isNotEmpty())
+                        <table class="agents_table col-md-6">
                             <tr>
-                                <th>{{$booking->destinations->name}}({{$booking->destinations->country}})</th>
-                                <th>{{$booking->destinations->price}} USD</th>
-                                <th>{{$booking->status}}</th>
-                                <th>{{$booking->from}}</th>
-                                <th>{{$booking->destinations->duration}}</th>
-                                <th>
-                                    <a href="#" class="btn btn-success">Pay</a>
-                                    <form action="{{action('BookingsController@destroy', $booking->id )}}" method="post" class="delete_form">
-                                        {{csrf_field()}}
-                                        <input name="_method" type="hidden" value="DELETE">
-                                        <button class="btn btn-danger" type="submit">Delete</button>
-                                    </form>
-                                </th>
+                                <th>Destination</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>From</th>
+                                <th>Duration</th>
+                                <th>Action</th>
                             </tr>
-                        @endforeach
-                    </table>
+                            @foreach($bookings as $booking)
+                                <tr>
+                                    <th>{{$booking->destinations->name}}({{$booking->destinations->country}})</th>
+                                    <th>{{$booking->destinations->price}} USD</th>
+                                    <th>{{$booking->status}}</th>
+                                    <th>{{$booking->from}}</th>
+                                    <th>{{$booking->destinations->duration}}</th>
+                                    <th>
+                                        <a href="{{ URL::to('payments/create/' . $booking->id) }}" class="btn btn-success">Pay</a>
+                                        <form action="{{action('BookingsController@destroy', $booking->id )}}" method="post" class="delete_form">
+                                            {{csrf_field()}}
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                        </form>
+                                    </th>
+                                </tr>
+                            @endforeach
+                        </table>
+                        @else
+                        <div class="not_available">Not available bookings</div>
+                    @endif
                 </div>
             </div>
         </div>

@@ -18,5 +18,19 @@ class Bookings extends Model
    public function destinations(){
        return $this->belongsTo('App\Destinations', 'destination_id');
    }
+   public static function updateStatus($id){
+       $booking = Bookings::find($id);
+       if($booking) {
+           $booking->status = 'paid';
+           $booking->save();
+       }
+   }
+    public static function refund($id){
+        $booking = Bookings::find($id);
+        if($booking) {
+            $booking->status = 'wait';
+            $booking->save();
+        }
+    }
 }
 
