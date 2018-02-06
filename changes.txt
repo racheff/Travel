@@ -1,6 +1,26 @@
-#Laravel project by Kaloyan Rachev for non-real purposes
+///////////////////////////////////////////////////////////
+//Laravel project by Kaloyan Rachev for non-real purposes//
+///////////////////////////////////////////////////////////
 v1.0 - Adding laravel + template + auth working
-v1.1 - Css, js, php fixes refer to Auth 
-v1.2 - Added TAgents, Bookings, Destinations - Controllers, Models and Migrations.
+v1.0.1 - Css, js, php fixes refer to Auth 
+v1.0.2 - Added TAgents, Bookings, Destinations - Controllers, Models and Migrations.
 css, js, php fixes refer to Auth. Added TAgents, Bookings, Destinations - Controllers, Models and Migrations.
-v1.3 - Migrations are fixed. Split header and footer. Added new migrations + tables in the database. Fixed key lenght in AppProvider file.
+v1.0.3 - Migrations are fixed. Split header and footer. Added new migrations + tables in the database. Fixed key lenght in AppProvider file.
+v1.0.4 - Added simple CRUD for destinations and agents; A bit of css fixes; new destination design in destination page(with boxes and images)
+v1.0.5 - Added relationship belongsTo in Destinations model. Tables Destinations and Agents are joined.
+v1.0.6 - Added seeders for destinations and agents table.
+v1.0.7 - Added css and js files in Assets dir; Added new UsersTableSeeders; Added new design to destinations(index,create,edit); A lot of css fixes; Added isAdmin role in users table if the user is admin, he can CRUD the content; added new bookings controller and payments controller with resources.
+v1.0.8 - Added booking system(CRUD and views) now every user can have a lot of bookings. Added design for Bookings and Agents views. Added relations between Bookings|destinations and bookings|user(using Auth::id() and eloquent model belongsTo. CSS fixes for header layout and some views.
+v1.0.9 - Links in navigation are fixed(problem with singlepagenav javascript)now they are working. Update actions for destinations and agents are fixed.New records in seeders. New design to forms. Added a few statements for admin role in DestinationsController and Agents Controller(and their views).
+v1.1 - Added new column (price) for destinations.. Added a promo label to products with price , under 230.. added new controller to responce with these promotions. Added laravel scout for searching and indexing database fields. Configure scout to work with destinations. Added new design to destinations page (search box is in the top) . Set a validation and custom javascript to searchbox.. (user can search a lot of times , without unnecessary redirects).
+v1.1.1 - Added CRUD and design for payments. Added two static functions in Bookings model (updateStatus) and (refund).When user click pay button and send request , booking status for this user is changing to (paid). And also, when click refund button , booking status is turning back to (wait). Added if statements in bookings and payments (if empty). Bookings with status paid are not showing.
+v1.1.2 - Payments whole design is changed. Added credit card validation (but not configured..). Destination details is changed... now description is text field... and it shows up , when user detail a destination. Changes in other views.
+v1.1.3 - Added new Payments controller, model, migration, seeds. Fully working CRUD for payments. Added new column in bookings (vehicle_id). Added vehicle types in bookings create.Changing total price in bookings.create with javascript(when user select a vehicle, automatically shows final price). Added new static function which sum destination price + vehicle (ticket_price).
+
+///////////////////////////////////////////////////////////
+/////////////////////HOW TO RUN IT/////////////////////////
+///////////////////////////////////////////////////////////
+1. Editing .env file and configure database
+2. php artisan migrate(run migrations)
+3. php db:seed(run seeders)
+4. Enjoy:))
