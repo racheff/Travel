@@ -17,6 +17,7 @@ class CreateBookingsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('destination_id')->unsigned();
+            $table->integer('vehicle_id')->unsigned();
             $table->string('status', 50);
             $table->date('from');
             $table->timestamps();

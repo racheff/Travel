@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Destinations;
 use App\User;
 use App\Bookings;
+use App\Vehicles;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -32,9 +33,10 @@ class BookingsController extends Controller
      */
     public function create($id){
         $request = new Request();
+        $vehicles = Vehicles::all();
         $destinations = Destinations::with('agents')->where('id', $id)->get();
         $req  =  $request->get('date');
-        return view('bookings.create')->with('destination_id', $id)->with('destination',$destinations);
+        return view('bookings.create')->with('destination_id', $id)->with('destination',$destinations)->with('vehicles', $vehicles);
 
     }
     /**
@@ -51,6 +53,7 @@ class BookingsController extends Controller
         $booking = new Bookings([
             'user_id' => $currentuserid,
             'destination_id' => $request->get('destination_id'),
+            'vehicle_id' => $request->get('vehicle_id'),
             'status' => 'wait',
             'from' => $request->get('date')
         ]);

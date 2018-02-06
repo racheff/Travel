@@ -6,6 +6,11 @@
             <div class="col-md-6 heading">
                 <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><div>Travel Agents</div></h2>
             </div>
+            <div class="row">
+                <div class="col-md-6 text_below_h2">
+                    <p>Please, before you book and pay , read our terms <a href="/terms">here</a></p>
+                </div>
+            </div>
             <div class="container" id="portfolio">
                 <div class="row">
                     <table class="agents_table col-md-6 col-xs-10">

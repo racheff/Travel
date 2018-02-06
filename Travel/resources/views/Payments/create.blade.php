@@ -22,7 +22,7 @@
                                 <input type="hidden" name="booking_id" value="{{$booking_id}}">
                                 <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Price: </label>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" name="amount" value="{{$pay->destinations->price}}" readonly="">
+                                    <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" name="amount" value="{{\App\Payments::finalPrice($booking_id)}}" readonly="">
                                 </div>
                             @endforeach
 

@@ -6,11 +6,15 @@
             <div class="col-md-6 heading">
                 <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><div>Payments</div></h2>
             </div>
-
             <div class="container" id="portfolio">
                 @if (\Session::has('message'))
                     <div class="alert alert-info">{{\Session::get('message') }}</div>
                 @endif
+                    <div class="row">
+                        <div class="col-md-6 text_below_h2">
+                            <p>Please, before you book and pay , read our terms <a href="/terms">here</a></p>
+                        </div>
+                    </div>
                 <div class="row">
                     @if($payment->isNotEmpty())
                     <table class="agents_table col-md-6 col-xs-10">

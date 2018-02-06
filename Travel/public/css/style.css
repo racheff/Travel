@@ -203,7 +203,7 @@ h2 div{text-align: left;color:#fff; text-transform: capitalize;font-size: 50px}
 #offers p{color: rgb(82,84,83);}
 body #portfolio{padding-top: 20px;padding-bottom: 0;clear: both;}
 .text_under_heading{text-align: left;}
-.text_under_heading p{color: rgb(82,84,83);font-size: 20px;}
+.text_under_heading p{color:#fff;font-size: 20px;}
 .hot{font-size: 20px;color: red;text-align: right;display: inline-block;vertical-align: top;padding-left: 5px;}
 .login_register_popup{background: rgba(0,0,0,0.8);padding:10px 10px;position:fixed;top:70px;right:0;z-index: 99999;border-bottom-left-radius: 0;}
 body #login{padding-bottom:0;padding-top: 10px;max-width: 300px;width:100%;}
@@ -273,9 +273,8 @@ body .alert{text-align: center;clear:left;}
 .logout_link{float:right;}
 .text_below_h2{text-align: center;margin:0 auto;float:none;}
 .animated{color:#fff;}
-.edit_dest span{display:block;}
 body .col-form-label{line-height:32px;
-    padding-right: 0;clear:left;}
+    padding-right: 0;clear:left;font-size: 16px;}
 .col-sm-10{padding-left: 0;padding-right:0}
 .promo_label{
     font: 700 14px/12px Arial,Helvetica,sans-serif;
@@ -326,7 +325,13 @@ body select option{
     padding: 0 30px;
     clear:left;
 }
+.booking_info{padding-left: 15px;
+    padding-bottom: 15px;
+    font-size: 16px;}
 body .form-control[readonly]{background: transparent}
+.final_price{    font-size: 20px;
+    color: #30ef10;
+    padding: 15px 0 0 0;}
 @media (max-width:768px){
     .portfolio-overlay{
         text-align: center;

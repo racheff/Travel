@@ -21,6 +21,7 @@ Route::resource('destinations', 'DestinationsController');
 Route::resource('agents', 'AgentsController');
 Route::resource('bookings', 'BookingsController');
 Route::resource('payments', 'PaymentsController');
+Route::resource('vehicles', 'VehiclesController');
 Route::get('/bookings/create/{id}', 'BookingsController@create');
 Route::get('/payments/create/{id}', 'PaymentsController@create');
 Route::get('destinations/search/{name}', function ($name) {
@@ -32,3 +33,7 @@ Route::get('destinations/search/{name}', function ($name) {
     }
 
 });
+Route::get('/terms', function () {
+    //
+    return view('terms');
+})->name('terms');

@@ -13,7 +13,7 @@
                 @endif
                 <div class="row">
                     <div class="col-md-6 text_below_h2">
-                        <p>Once you've book a destination, you have to pay for it. Payments are depending on destinations(duration and location) and vehicles.Prices are different for every destination. When you creating a booking you must set a date.Date From and Date to. If destination have duration(for e.g. 6 days) you can't exceed it and you need to chooce only date From.You can delete the book before pay for it.</p>
+                        <p>Please, before you book and pay , read our terms <a href="/terms">here</a></p>
                     </div>
                 </div>
                 <div class="row">
@@ -30,7 +30,7 @@
                             @foreach($bookings as $booking)
                                 <tr>
                                     <th>{{$booking->destinations->name}}({{$booking->destinations->country}})</th>
-                                    <th>{{$booking->destinations->price}} USD</th>
+                                    <th>{{\App\Payments::finalPrice($booking->id)}} USD</th>
                                     <th>{{$booking->status}}</th>
                                     <th>{{$booking->from}}</th>
                                     <th>{{$booking->destinations->duration}}</th>

@@ -72,7 +72,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 text_under_heading">
-                <p>This is a student project made by Kaloyan Krasimirov Rachev and it's not for a real purposes. Used information in this website will be real (for e.g. destinations, prices, travel agents) but only for non-commerce situations. Have fun !!!</p>
+                <p>This is a student project made by Kaloyan Krasimirov Rachev and it's not for a real purposes. Used information in this website will be real (for e.g. destinations, prices, travel agents) but only for non-commerce situations. Terms and conditions, belongs to booking.com . Have fun !!!</p>
             </div>
         </div>
     </div>

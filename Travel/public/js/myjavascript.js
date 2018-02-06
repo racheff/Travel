@@ -89,3 +89,13 @@ $(document).ready(function(){
     })
 });
 
+function finalPrice(sel)
+{
+    //var destination_price = document.getElementById('destination_price').innerHTML;
+    var destination_price = $('#destination_price').data('price');
+    var vehicle_price = sel.options[sel.selectedIndex].text;
+    vehicle_price = vehicle_price.replace(/[^0-9\.]+/g, "");
+    document.getElementById('destination_price').innerHTML = parseFloat(destination_price )+ parseFloat(vehicle_price);
+
+
+}
