@@ -11,7 +11,11 @@ class Payments extends Model
         'user_id',
         'amount',
         'status',
-        'card'
+        'card',
+        'number',
+        'ccv',
+        'exp',
+        'name'
     ];
     public function booking(){
         return $this->belongsTo('App\Bookings.php', 'booking_id');

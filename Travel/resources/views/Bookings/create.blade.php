@@ -10,7 +10,7 @@
             @endif
 
 
-            <div class="container col-md-6 edit_dest" id="portfolio">
+            <div class="container col-md-6 edit_dest col-xs-10" id="portfolio">
                 <div class="row">
                     <form method="post" action="{{url('bookings')}}">
                         <div class="form-group row">

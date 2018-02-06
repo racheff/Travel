@@ -11,7 +11,7 @@
                     <div class="alert alert-info">{{\Session::get('message') }}</div>
                 @endif
                 <div class="row">
-                    <form method="post" class="col-md-6 edit_dest" action="{{action('AgentsController@update', $agent->id)}}">
+                    <form method="post" class="col-md-6 edit_dest col-xs-10" action="{{action('AgentsController@update', $agent->id)}}">
                         <div class="form-group row">
 
                             {{csrf_field()}}

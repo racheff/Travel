@@ -7,7 +7,7 @@
                 <div class="col-md-6 heading">
                     <h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><div>Search a destination<span class="hot">new</span></div></h2>
                 </div>
-                <div class="container col-md-6 edit_dest">
+                <div class="container col-md-6 edit_dest col-xs-10">
                     <div class="row">
                         <form method="" action="{{URL::to('search/')}}">
                             <div class="col-sm-12">
@@ -32,7 +32,7 @@
                         <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn destination-box" data-wow-offset="50" data-wow-delay="0.6s">
 
                             <div class="portfolio-thumb">
-                                <img src="{{$destination->image}}" class="img-responsive" alt="portfolio img 2">
+                                <img src="{{asset('images/destinations')}}/{{$destination->image}}" class="img-responsive" alt="destination picture">
                                 @if($destination->price < 230)
                                     <span class="promo_label">Promotion</span>
                                 @endif

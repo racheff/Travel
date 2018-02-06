@@ -16,7 +16,7 @@
                     <div class="alert alert-info">{{\Session::get('message') }}</div>
                 @endif
                 <div class="row">
-                    <form method="post" class="col-md-6 edit_dest" action="{{url('agents')}}">
+                    <form method="post" class="col-md-6 edit_dest col-xs-10" action="{{url('agents')}}">
                         <div class="form-group row">
                             {{csrf_field()}}
                             <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">First Name</label>

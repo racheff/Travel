@@ -8,7 +8,7 @@
             </div>
             <div class="container" id="portfolio">
                 <div class="row">
-                    <table class="agents_table col-md-6">
+                    <table class="agents_table col-md-6 col-xs-10">
                         <tr>
                             <th>№</th>
                             <th>First name</th>

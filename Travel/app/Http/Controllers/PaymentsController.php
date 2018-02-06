@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\Bookings;
+use App\Http\Requests\CreditCardRequest;
 use App\Payments;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use LVR\CreditCard\Cards\Card;
+use LVR\CreditCard\Contracts\CreditCard;
+
 class PaymentsController extends Controller
 {
     /**
@@ -15,7 +20,8 @@ class PaymentsController extends Controller
      */
     public function index()
     {
-        $payment = Payments::all();
+        $userid = Auth::id();
+        $payment = Payments::all()->where('user_id', $userid);
         return view('payments.index')->with('payment', $payment);
     }
 
@@ -28,12 +34,10 @@ class PaymentsController extends Controller
     {
         $guest = Auth::guest();
         if(!$guest){
-            $request = new Request();
             $payments = Bookings::with('destinations')->where('id', $id)->get();
             return view('payments.create')->with('booking_id', $id)->with('payment',$payments);
         }else{
             return view('payments.index')->with('message', 'You have to log in first');
-
         }
 
 
@@ -48,17 +52,33 @@ class PaymentsController extends Controller
      */
     public function store(Request $request)
     {
-        $id = Auth::id();
-        $pay = new Payments([
-            'booking_id' => $request->get('booking_id'),
-            'user_id' => $id,
-            'amount' => $request->get('amount'),
-            'status' => 'Paid',
-            'card' => $request->get('credit_card')
-        ]);
-        $pay->save();
-        Bookings::updateStatus($request->get('booking_id'));
-        return redirect('/payments')->with('message', 'Successfully paid !');
+        $rules = array(
+            'number' => 'required|min:19|max:19',
+            'ccv' => 'required|min:3|max:3',
+            'exp' => 'required|min:5|max:5'
+        );
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return redirect('payments/create/'.$request->get('booking_id'))
+                ->withErrors($validator)
+                ->withInput($request->all());
+        } else {
+            $id = Auth::id();
+            $pay = new Payments([
+                'booking_id' => $request->get('booking_id'),
+                'user_id' => $id,
+                'amount' => $request->get('amount'),
+                'status' => 'Paid',
+                'card' => $request->get('credit_card'),
+                'number' => bcrypt($request->get('number')),
+                'ccv' => bcrypt($request->get('ccv')),
+                'exp' => $request->get('exp'),
+                'name' => $request->get('name')
+            ]);
+            $pay->save();
+            Bookings::updateStatus($request->get('booking_id'));
+            return redirect('/payments')->with('message', 'Successfully paid !');
+        }
     }
 
     /**

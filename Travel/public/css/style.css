@@ -51,7 +51,7 @@ body .alert{margin:0 auto;
     float: none;
     margin-bottom: 10px;}
 body .social-icon {text-align: center;}
-body .navbar-default .navbar-brand{font-size: 26px}
+body .navbar-default .navbar-brand{font-size: 26px; padding:12px 0;}
 @media (max-width: 486px){
 	body h1 .element{font-size: 44px;text-align:center;}
 	body #home .btn{display:none;}
@@ -275,7 +275,7 @@ body .alert{text-align: center;clear:left;}
 .animated{color:#fff;}
 .edit_dest span{display:block;}
 body .col-form-label{line-height:32px;
-    padding-right: 0;}
+    padding-right: 0;clear:left;}
 .col-sm-10{padding-left: 0;padding-right:0}
 .promo_label{
     font: 700 14px/12px Arial,Helvetica,sans-serif;
@@ -307,3 +307,28 @@ html body #interested-in .fa, html body #about .fa.fa-search{font-size:18px;line
 #search:focus{outline: 0;}
 .search_container{margin:0 auto;float:none;}
 .not_available{text-align: center;font-size:25px;}
+body select{color:#fff; background:transparent;border:1px solid #28a7e9;height:34px;}
+.visa_master_card{
+    display:block;
+    margin:0 auto;
+}
+.card_details{
+    margin:20px auto;
+    float:none;
+}
+body select option{
+    background: #303030;
+    border:1px solid #28a7e9;
+}
+.payment_submit{
+    margin: 0 auto;
+    float: none;
+    padding: 0 30px;
+    clear:left;
+}
+body .form-control[readonly]{background: transparent}
+@media (max-width:768px){
+    .portfolio-overlay{
+        text-align: center;
+    }
+}

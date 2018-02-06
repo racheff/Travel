@@ -13,18 +13,22 @@
                 @endif
                 <div class="row">
                     @if($payment->isNotEmpty())
-                    <table class="agents_table col-md-6">
+                    <table class="agents_table col-md-6 col-xs-10">
                         <tr>
-                            <th>ID</th>
-                            <th>Amount</th>
+                            <th>Owner</th>
                             <th>Status</th>
+                            <th>Card</th>
+                            <th>Amount</th>
+                            <th>Created at</th>
                             <th>Action</th>
                         </tr>
                         @foreach($payment as $pay)
                             <tr>
-                                <th>{{$pay->id}}</th>
-                                <th>{{$pay->amount}} USD</th>
+                                <th>{{$pay->name}}</th>
                                 <th>{{$pay->status}}</th>
+                                <th>{{$pay->card}}</th>
+                                <th>{{$pay->amount}} USD</th>
+                                <th>{{$pay->created_at}}</th>
                                 <th>
                                     <form action="{{action('PaymentsController@destroy', $pay->id )}}" method="post" class="delete_form">
                                         {{csrf_field()}}

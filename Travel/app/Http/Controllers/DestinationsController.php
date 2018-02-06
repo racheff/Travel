@@ -36,7 +36,8 @@ class DestinationsController extends Controller
     public function create()
     {
         if(User::isAdmin()){
-            return view('destinations.create');
+            $agents = Agents::all();
+            return view('destinations.create')->with('agents', $agents);
         }else{
         return redirect('destinations')->with('message', 'You are not authorized to use this action');
         }

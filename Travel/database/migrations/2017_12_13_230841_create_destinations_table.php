@@ -20,7 +20,7 @@ class CreateDestinationsTable extends Migration
             $table->string('country');
             $table->string('duration');
             $table->string('image');
-            $table->string('description');
+            $table->text('description');
             $table->double('price');
         });
     }

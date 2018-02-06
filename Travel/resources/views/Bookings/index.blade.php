@@ -18,7 +18,7 @@
                 </div>
                 <div class="row">
                     @if($bookings->isNotEmpty())
-                        <table class="agents_table col-md-6">
+                        <table class="agents_table col-md-6 col-xs-10">
                             <tr>
                                 <th>Destination</th>
                                 <th>Price</th>

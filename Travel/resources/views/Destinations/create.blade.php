@@ -44,9 +44,6 @@
                             <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Agent</label>
                             <div class="col-sm-10">
                                 <select name="agent_id" class="form-control form-control-lg select">
-                                    <?php
-                                       $agents = \App\Agents::all();
-                                    ?>
                                     @foreach($agents as $agent)
                                         <option value="{{$agent->id}}" class="selectors">{{$agent->company}}</option>
                                     @endforeach

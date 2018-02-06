@@ -29,7 +29,7 @@
                 <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn destination-box" data-wow-offset="50" data-wow-delay="0.6s">
 
                     <div class="portfolio-thumb">
-                        <img src="{{$destination->image}}" class="img-responsive" alt="portfolio img 2">
+                        <img src="{{asset('images/destinations')}}/{{$destination->image}}" class="img-responsive" alt="destination picture">
 
                             <span class="promo_label">Promotion</span>
 

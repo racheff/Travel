@@ -26,7 +26,6 @@ class UpdateDestination extends FormRequest
             'image' => 'required',
             'description' => 'required',
             'agent_id' => 'required'
-
         ];
     }
 }

@@ -88,3 +88,4 @@ $(document).ready(function(){
         window.location.replace(baseLocation + "/destinations/search/" + nameValue);
     })
 });
+

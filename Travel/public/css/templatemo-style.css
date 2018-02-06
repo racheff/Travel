@@ -185,7 +185,7 @@ header .social-icon li a
 		font-size: 30px;
 		height: 70px;
 		line-height: 40px;
-		padding: 12px 0px 0px 12px;
+		padding: 0;
 	}
 .navbar-default .navbar-nav li a
 	{
@@ -360,6 +360,10 @@ header .social-icon li a
 	{
 		padding: 0px;
 	}
+#payment_form .col-md-3
+{
+	padding:0 15px;
+}
 	.portfolio-thumb, 
 	.portfolio-overlay {
 		max-width: 450px;

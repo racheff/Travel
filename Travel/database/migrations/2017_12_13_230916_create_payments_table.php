@@ -21,6 +21,10 @@ class CreatePaymentsTable extends Migration
             $table->decimal('amount');
             $table->string('status');
             $table->string('card');
+            $table->string('number');
+            $table->string('ccv');
+            $table->string('exp');
+            $table->string('name');
             $table->timestamps();
         });
     }
